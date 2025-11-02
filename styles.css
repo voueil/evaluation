@@ -1,0 +1,126 @@
+:root {
+  --lavender: #a68ed6;
+  --lavender-dark: #8a6bbf; 
+  --lavender-light: #f4f1fa;
+  --white: #ffffff;
+  --text: #2d2a32;
+  --border: #e5e1f1;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--lavender-light);
+  color: var(--text);
+  line-height: 1.5;
+  direction: ltr;
+}
+
+.header {
+  background: #d8d1e8; 
+  color: #4b2e7f; 
+  text-align:center;
+  padding:24px;
+  border-radius:0 0 24px 24px;
+}
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width:1000px;
+  margin:28px auto;
+  padding:16px;
+}
+
+.card, .project-card {
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:0 6px 16px var(--shadow);
+  padding:18px;
+  margin-bottom:18px;
+  border:1px solid var(--border);
+}
+
+.button, .back-btn, .action-btn {
+  background:var(--lavender-dark);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  text-align:center;
+  display:inline-block;
+}
+
+.button:hover, .back-btn:hover {
+  background:var(--lavender);
+}
+
+.field { margin:12px 0; }
+
+label {
+  font-weight:600;
+  margin-bottom:6px;
+  color:var(--lavender-dark);
+  display:block;
+}
+
+input, select {
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:#fff;
+}
+
+.stats {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:16px 0;
+}
+
+.stat {
+  flex:1 1 160px;
+  min-width:140px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  text-align:center;
+  padding:10px;
+  box-shadow:0 4px 10px var(--shadow);
+}
+
+.table-wrap { overflow-x:auto; }
+
+.table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+.table th, .table td {
+  padding:10px;
+  border-bottom:1px solid var(--border);
+  font-size:0.95rem;
+  text-align:right;
+}
+
+.table th {
+  background:var(--lavender-light);
+  color:var(--lavender-dark);
+}
+
+@media(max-width:768px){
+  .stat{flex:1 1 100%;}
+  .table th,.table td{font-size:0.8rem;}
+}

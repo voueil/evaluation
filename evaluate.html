@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Evaluation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<style>
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #c6b2eb; 
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 16px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 1000;
+}
+.back-btn:hover { background:#8a6bbf; }
+
+.instructions { direction: ltr; text-align: left; margin-bottom:16px; }
+.field label { display:block; font-weight:600; color:var(--lavender-dark); margin-bottom:6px; }
+select { width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); }
+
+#projTitle, #studentsNames { text-align:center; font-weight:600; margin-bottom:4px; }
+#projDesc { text-align:center; margin-bottom:16px; font-style:italic; }
+</style>
+</head>
+<body>
+<button class="back-btn" onclick="history.back()">Back</button>
+
+<header class="header">
+  <img src="images/logo.png" alt="Logo" class="site-logo">
+  <div>Project Evaluation</div>
+</header>
+
+<main class="container">
+  <div class="card">
+    <h3 id="projTitle"></h3>
+    <p id="studentsNames" class="small"></p>
+    <p id="projDesc" class="small"></p>
+
+    <div class="card instructions">
+      <strong>Instructions for Evaluators:</strong>
+      <ul>
+        <li>Excellent = 10</li>
+        <li>Good = 8</li>
+        <li>Satisfactory = 6</li>
+        <li>Needs Improvement = 2</li>
+      </ul>
+    </div>
+
+    <form id="form">
+      <div id="criteriaList"></div>
+      <button class="button" type="submit">Submit Evaluation</button>
+    </form>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get("project");
+const evaluator = params.get("evaluator");
+const project = APP.INITIAL_PROJECTS[id];
+
+if (!project || !evaluator) { 
+  alert("Project or evaluator not found"); 
+  location = "login.html"; 
+}
+
+let criteria = evaluator === "Dr. Abdullah Aljahni" ? APP.ABDULLAH_CRITERIA : APP.DEFAULT_CRITERIA;
+
+document.getElementById("projTitle").textContent = project.name;
+document.getElementById("projDesc").textContent = project.description;
+document.getElementById("studentsNames").textContent = project.students || '';
+
+const container = document.getElementById("criteriaList");
+
+const textOptions = `
+  <option disabled selected hidden>-- Select Rating --</option>
+  <option value="Excellent">Excellent – All information is accurate, detailed, and highly relevant to computer architecture. Demonstrates deep understanding of the project.</option>
+  <option value="Good">Good – Information mostly accurate with minor errors, relevant to the project. Shows good understanding.</option>
+  <option value="Satisfactory">Satisfactory – Basic accuracy with some errors or omissions. Understanding is superficial.</option>
+  <option value="Needs Improvement">Needs Improvement – Significant inaccuracies or irrelevant content. Lacks understanding of the project.</option>
+`;
+
+criteria.forEach(c => {
+  const div = document.createElement("div");
+  div.className = "field";
+  div.innerHTML = `<label>${c.label}</label>
+                   <select data-key="${c.key}">${textOptions}</select>`;
+  container.appendChild(div);
+});
+
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const existing = APP.loadRatings(id).find(r => r.evaluatorName === evaluator);
+  if (existing) { 
+    alert("You have already evaluated this project"); 
+    return; 
+  }
+
+  const scores = {};
+  document.querySelectorAll("[data-key]").forEach(sel => {
+    if(!sel.value){
+      alert("Please select a rating for all criteria.");
+      throw new Error("Missing selection");
+    }
+    scores[sel.dataset.key] = sel.value; 
+  });
+
+  APP.addRating(id, evaluator, scores);
+  alert("✅ Evaluation saved successfully");
+  location.href = `index.html?evaluator=${encodeURIComponent(evaluator)}`;
+});
+</script>
+</body>
+</html>
