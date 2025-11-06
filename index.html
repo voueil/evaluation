@@ -6,13 +6,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 <style>
-.action-btn { background: var(--lavender-dark); color: #fff; padding: 8px 14px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; text-align: center; display: inline-block; margin-top: 8px; }
+:root {
+  --lavender: #a68ed6;
+  --lavender-dark: #8a6bbf;
+  --lavender-light: #f4f1fa;
+}
+.action-btn { 
+  background: var(--lavender-dark); 
+  color: #fff; 
+  padding: 8px 14px; 
+  border-radius: 12px; 
+  border: none; 
+  font-weight: 600; 
+  cursor: pointer; 
+  text-align: center; 
+  display: inline-block; 
+  margin-top: 8px; 
+}
 .action-btn:hover { background: #a68ed6; }
 .project-row { margin-bottom: 18px; }
 .project-row div { margin-bottom: 6px; }
 .container { max-width: 1000px; margin:28px auto; padding:16px; }
 .header { text-align:center; font-size:1.8rem; font-weight:700; margin-bottom:8px; }
-.footer-note { text-align:center; font-size:1.2rem; font-weight:600; margin-bottom:24px; color:#555; }
+.footer-note { text-align:center; font-size:1.2rem; font-weight:600; margin:28px 0; color:#555; }
+.site-logo { width: 80px; display:block; margin:0 auto 10px; }
 </style>
 </head>
 <body>
@@ -22,16 +39,14 @@
   <div>Project Evaluation</div>
 </header>
 
-<div class="footer-note">© developed by Elixir Hub 2025</div>
-
 <main class="container">
+  <div style="text-align:center; margin-bottom:24px;">
+    <a class="action-btn" href="allResults.html">View All Project Results</a>
+  </div>
+
   <div class="card">
     <h3 style="text-align:center;">Project List</h3>
     <div id="projectsArea"></div>
-  </div>
-
-  <div style="text-align:center; margin-top:24px;">
-    <a class="action-btn" href="allResults.html">View All Project Results</a>
   </div>
 </main>
 
