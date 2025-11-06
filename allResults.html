@@ -38,29 +38,6 @@ body {
 }
 .back-btn:hover { background:#8a6bbf; }
 
-.login-box {
-  max-width:350px;
-  margin:120px auto;
-  background:#fff;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.08);
-  text-align:center;
-}
-.login-box input, .login-box button {
-  width:100%;
-  margin-top:12px;
-  padding:12px;
-  border-radius:12px;
-}
-.login-box button {
-  background:var(--lavender-dark);
-  color:#fff;
-  font-weight:600;
-  border:0;
-  cursor:pointer;
-}
-
 .container { max-width:1000px; margin:28px auto; padding:16px; }
 .project-card { margin-bottom:24px; padding-bottom:12px; border-bottom:1px solid var(--border); background:#fff; border-radius:var(--radius); box-shadow:0 4px 10px rgba(0,0,0,0.05); padding:16px; }
 .stats { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; margin-bottom:12px; justify-content:flex-start; }
@@ -77,13 +54,7 @@ body {
 
 <button class="back-btn" onclick="history.back()">Back</button>
 
-<div class="login-box" id="passwordBox">
-  <h2>Enter Password</h2>
-  <input type="password" id="passwordInput" placeholder="Password">
-  <button onclick="checkPassword()">Enter</button>
-</div>
-
-<main class="container" id="resultsContainer" style="display:none;">
+<main class="container" id="resultsContainer">
   <header class="header">
   <img src="images/logo.png" alt="Logo" class="site-logo">
   <div>All Project Results</div>
@@ -93,18 +64,9 @@ body {
 
 <script src="app.js"></script>
 <script>
-function checkPassword(){
-  const pwd = document.getElementById('passwordInput').value;
-  if(pwd !== "ElixirHub2026"){
-    alert("Incorrect password. Access denied.");
-    return;
-  }
-  document.getElementById('passwordBox').style.display = 'none';
-  document.getElementById('resultsContainer').style.display = 'block';
-  showResults();
-}
+document.addEventListener("DOMContentLoaded", showResults);
 
- function showResults(){
+function showResults(){
   const projectsContainer = document.getElementById('projectsResults');
   const textMap = { 10:"Excellent", 8:"Good", 6:"Satisfactory", 2:"Needs Improvement" };
 
@@ -168,7 +130,6 @@ function checkPassword(){
     projectsContainer.appendChild(card);
   });
 }
-
 </script>
 
 </body>
