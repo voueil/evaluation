@@ -1,9 +1,53 @@
-# Evaluation Platform
-A web-based evaluation system designed for instructors to assess student projects efficiently and view aggregated results in real time.
-The platform provides evaluators with a streamlined interface to rate projects based on predefined criteria and automatically calculates weighted averages for each project.
+# Project Evaluation Platform
 
-# Folder Structure
-project-evaluation
+A web-based system that allows instructors to evaluate student projects efficiently and view aggregated results in real time.  
+It provides an intuitive interface for evaluators to rate projects, automatically calculate weighted scores, and visualize performance insights.
+
+---
+
+## ⚙️ How It Works
+
+1. **Evaluator Login**  
+   Evaluator selects their name to access assigned projects.
+
+2. **Project Selection**  
+   The platform filters and shows only the projects related to the evaluator.
+
+3. **Evaluation Form**  
+   Each project is rated based on specific criteria:
+   - 🌟 Excellent (10)  
+   - 👍 Good (8)  
+   - 🙂 Satisfactory (6)  
+   - ⚠️ Needs Improvement (2)
+
+4. **Automatic Calculation**  
+   Weighted totals and averages are calculated instantly.
+
+5. **Results Dashboard**  
+   Displays:
+   - 📊 Average per criterion  
+   - 🧮 Total average  
+   - 🕓 Evaluator details and timestamps  
+
+---
+
+## 🧩 Pages Overview
+
+| File | Description |
+|------|--------------|
+| `login.html` | Entry page where evaluator selects their name. |
+| `index.html` | Displays a list of projects assigned to the evaluator. |
+| `evaluate.html` | Evaluation form with predefined weighted criteria. |
+| `allResults.html` | Dashboard showing aggregated results for all projects. |
+| `styles.css` | Contains the lavender-themed responsive design. |
+| `app.js` | Core logic for data handling, evaluation, and aggregation. |
+
+---
+
+## 📁 Folder Structure
+
+```plaintext
+project-evaluation/
 │
 ├── index.html
 ├── evaluate.html
@@ -14,18 +58,11 @@ project-evaluation
 └── images/
     └── logo.png
 
-# Pages Overview
-| File              | Description                                                               |
-| ----------------- | ------------------------------------------------------------------------- |
-| `login.html`      | Evaluator selection and entry point to the system.                        |
-| `index.html`      | Displays the project list filtered by evaluator.                          |
-| `evaluate.html`   | Evaluation form for each project, with weighted scoring.                  |
-| `allResults.html` | Dashboard page showing aggregated results and evaluator details.          |
-| `styles.css`      | Global styles using the lavender-themed palette.                          |
-| `app.js`          | Core logic for project data, evaluation handling, and result aggregation. |
+## 🛠️ Tools Used
 
-# Technologies Used
-HTML
-CSS
-JavaScript
-LocalStorage API
+| Tool | Purpose |
+|------|----------|
+| **Visual Studio Code** | 💻 Code editing and local development |
+| **Git & GitHub** | 🌐 Version control and collaboration |
+| **GitHub Pages** | 🚀 Hosting and deploying the web platform |
+| **Web Development Tools** | 🧩 Front-end design, testing, and debugging |
