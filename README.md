@@ -3,7 +3,7 @@ A web-based evaluation system designed for instructors to assess student project
 The platform provides evaluators with a streamlined interface to rate projects based on predefined criteria and automatically calculates weighted averages for each project.
 
 # Folder Structure
-/project-evaluation
+project-evaluation
 │
 ├── index.html
 ├── evaluate.html
