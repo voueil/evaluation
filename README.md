@@ -44,6 +44,17 @@ It provides an intuitive interface for evaluators to rate projects, automaticall
 
 ---
 
+## 🛠️ Tools Used
+
+| Tool | Purpose |
+|------|----------|
+| **Visual Studio Code** | 💻 Code editing and local development |
+| **Git & GitHub** | 🌐 Version control and collaboration |
+| **GitHub Pages** | 🚀 Hosting and deploying the web platform |
+| **Web Development Tools** | 🧩 Front-end design, testing, and debugging |
+
+---
+
 ## 📁 Folder Structure
 
 ```plaintext
@@ -57,12 +68,3 @@ project-evaluation/
 ├── styles.css
 └── images/
     └── logo.png
-
-## 🛠️ Tools Used
-
-| Tool | Purpose |
-|------|----------|
-| **Visual Studio Code** | 💻 Code editing and local development |
-| **Git & GitHub** | 🌐 Version control and collaboration |
-| **GitHub Pages** | 🚀 Hosting and deploying the web platform |
-| **Web Development Tools** | 🧩 Front-end design, testing, and debugging |
